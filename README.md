@@ -16,14 +16,12 @@ Building the Squid3 Proxy Docker Image
 --------------------------------------
 Clone the git repo and cd into the root directory.
 
-    $ git clone https://github.com/toffer/docker-squid3-ssl
-    $ cd docker-squid3-ssl
+    # git clone https://github.com/nubela/docker-squid3-ssl
+    # cd docker-squid3-ssl
 
-Building the `squid3-ssl` Docker image is a 3-step process. (Read the Makefile for the actual `docker` commands.)
+Building the `squid3-ssl` Docker image is a 1-step process.
 
-    $ make debs
-    $ make certs    # Or, copy a private key and .crt file into the certs directory.
-    $ make image
+    # ./build.sh
 
 The first step creates a `squid3-ssl-build` Docker image, whose purpose is to compile Squid3 from source, produce Debian packages, and copy the `.deb` files to the `debs` directory on the host filesystem.
 
@@ -38,7 +36,7 @@ Running the Squid3 Proxy
 ------------------------
 To start Squid3 and set up port forwarding:
 
-    $ docker run -d -p 3128:3128 squid3-ssl
+    # ./run.sh
 
 
 Using the Squid3 Proxy
